@@ -1,5 +1,7 @@
 # Cubing
 
+http://msrose.github.io/cubing/
+
 Start developing: `npm install && gulp`
 
 Run tests once: `npm test`
