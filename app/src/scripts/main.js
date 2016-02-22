@@ -1,6 +1,6 @@
 (($) => {
 
-  $.get('/logs/7x7x7/latest.csv', (data) => {
+  $.get('logs/7x7x7/latest.csv', (data) => {
     let solves = parseLogData(data);
 
     function pointFormatter() {
