@@ -1,8 +1,0 @@
-node_modules/
-
-app/dist/
-app/public/lib/
-app/public/*/compiled/
-
-*.swp
-*.swo
