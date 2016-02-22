@@ -1,0 +1,21 @@
+{
+  "name": "web-template",
+  "description": "A starter template for static web projects.",
+  "main": "",
+  "authors": [
+    "Michael Rose"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "web",
+    "template",
+    "starter",
+    "website"
+  ],
+  "homepage": "https://github.com/msrose/web-template",
+  "moduleType": [],
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.2.0"
+  }
+}
