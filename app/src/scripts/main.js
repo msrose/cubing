@@ -5,7 +5,7 @@
     let url = `http://ec2-54-165-242-22.compute-1.amazonaws.com/solves/${puzzle}`;
     $.get(url, (data) => {
       let solves = data.solves.map((solveData, index) => {
-        return new Solve(solveData.recorded_at, solveData.duration, index);
+        return new Solve(solveData.recorded_at, solveData.duration, index + 1);
       });
 
       function pointFormatter() {
