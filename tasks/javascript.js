@@ -28,6 +28,10 @@ gulp.task('babel:scripts', () => {
   return gulp.src(babelScripts)
     .pipe(cache('babelScripts'))
     .pipe(babel())
+    .on('error', (error) => {
+      console.log(error.message);
+      console.log(error.codeFrame);
+    })
     .pipe(gulp.dest('app/public/scripts/compiled'));
 });
 
@@ -36,6 +40,10 @@ gulp.task('babel:tests', () => {
   return gulp.src(babelTests)
     .pipe(cache('babelTests'))
     .pipe(babel())
+    .on('error', (error) => {
+      console.log(error.message);
+      console.log(error.codeFrame);
+    })
     .pipe(gulp.dest('app/public/tests/compiled'));
 });
 
