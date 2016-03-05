@@ -2,8 +2,8 @@ node_modules/
 dist/
 
 app/dist/
-app/public/lib/
-app/public/*/compiled/
+app/public/
+!app/public/**/*.html
 
 *.swp
 *.swo

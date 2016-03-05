@@ -10,7 +10,7 @@ gulp.task('sass', () => {
   return gulp.src(sassFiles)
     .pipe(cache('sass'))
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('app/public/styles/compiled'));
+    .pipe(gulp.dest('app/public/styles'));
 });
 
 // recompile sass when a file is changed
