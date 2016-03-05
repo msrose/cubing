@@ -6,6 +6,9 @@
     "es6": true,
     "jquery": true
   },
+  "parserOptions": {
+    "sourceType": "module"
+  },
   "extends": "eslint:recommended",
   "rules": {
     "quotes": [2, "single"],

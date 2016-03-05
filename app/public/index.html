@@ -20,17 +20,16 @@
   <div id="3x3x3"></div>
 
   <!-- build:js vendor/vendor.js -->
-  <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="lib/node/polyfill.min.js"></script>
-  <script type="text/javascript" src="lib/highcharts/highcharts.js"></script>
+  <script type="text/javascript" src="lib/system.js/dist/system.js"></script>
   <!-- endbuild -->
 
-  <!-- build:js application.min.js -->
-  <script type="text/javascript" src="scripts/main.js"></script>
-  <script type="text/javascript" src="scripts/compiled/utils.js"></script>
-  <script type="text/javascript" src="scripts/compiled/solve.js"></script>
-  <script type="text/javascript" src="scripts/compiled/main.js"></script>
-  <!-- endbuild -->
+  <script type="text/javascript">
+    System.config({
+      defaultJSExtensions: 'js'
+    });
+    System.import('/scripts/compiled/main.js');
+  </script>
 </body>
 
 </html>
