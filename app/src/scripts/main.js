@@ -1,5 +1,6 @@
 import { msToTime } from './utils';
-import { Solve } from './solve';
+import Solve from './solve';
+import $ from './jquery';
 
 const puzzles = ['7x7x7', '3x3x3'];
 

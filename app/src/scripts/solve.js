@@ -1,6 +1,6 @@
 import { getMonth } from './utils';
 
-export class Solve {
+export default class Solve {
   constructor(recordedAt, duration, index) {
     this.recordedAt = recordedAt;
     this.duration = duration;

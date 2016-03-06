@@ -11,7 +11,7 @@ export function msToTime(ms) {
   ms %= 60000;
   let secs = Math.floor(ms / 1000);
   ms %= 1000;
-  return mins + ':' + pad(secs, 2) + '.' + Math.round(ms);
+  return `${mins}:${pad(secs, 2)}.${Math.round(ms)}`;
 }
 
 const months = [

@@ -12,16 +12,18 @@ import Builder from 'systemjs-builder';
 
 gulp.task('bundle', (done) => {
   let builder = new Builder('app/public');
-  builder.config({
-    defaultJSExtensions: 'js'
-  });
-  builder.bundle('scripts/main.js', 'app/dist/application.min.js').then(() => done()).catch(done);
+  builder.bundle('scripts/main.js', 'app/dist/application.min.js', {
+    minify: true,
+    config: {
+      defaultJSExtensions: 'js'
+    }
+  }).then(() => done()).catch(done);
 });
 
 // build for production: concatenate, minify
 gulp.task('build', (done) => {
   runSequence('clean', 'compile', 'bundle', () => {
-    gulp.src(['app/public/*[!lib]*/*.html', 'app/public/*.html', 'app/dist/application.min.js'])
+    gulp.src(['app/public/*[!lib]*/*.html', 'app/public/*.html'])
       .pipe(useref())
       .pipe(gulpif(['*.js', '!vendor/*.js'], uglify()))
       .pipe(gulpif(['*.css', '!vendor/*.css'], autoprefixer()))
