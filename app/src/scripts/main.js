@@ -1,7 +1,5 @@
 import { msToTime } from './utils';
 import { Solve } from './solve';
-import $ from '../../lib/jquery/dist/jquery';
-import '../../lib/highcharts/highcharts';
 
 const puzzles = ['7x7x7', '3x3x3'];
 
