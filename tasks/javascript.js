@@ -23,11 +23,11 @@ var allJs = jsFiles.concat(babelFiles);
 gulp.task('babel:scripts', () => {
   return gulp.src(babelScripts)
     .pipe(cache('babelScripts'))
-    .pipe(babel())
-    .on('error', (error) => {
+    .pipe(babel().on('error', function(error) {
       console.log(error.message);
       console.log(error.codeFrame);
-    })
+      this.emit('end');
+    }))
     .pipe(gulp.dest('app/public/scripts'));
 });
 
@@ -35,11 +35,11 @@ gulp.task('babel:scripts', () => {
 gulp.task('babel:tests', () => {
   return gulp.src(babelTests)
     .pipe(cache('babelTests'))
-    .pipe(babel())
-    .on('error', (error) => {
+    .pipe(babel().on('error', function(error) {
       console.log(error.message);
       console.log(error.codeFrame);
-    })
+      this.emit('end');
+    }))
     .pipe(gulp.dest('app/public/tests'));
 });
 

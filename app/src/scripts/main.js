@@ -1,5 +1,6 @@
 import $ from './jquery';
-import { createChart } from './charts';
+import Solve from './solve';
+import { createChart1, createChart2 } from './charts';
 
 $(document).ready(() => {
   let $puzzleDropdown = $('#puzzleDropdown');
@@ -8,7 +9,24 @@ $(document).ready(() => {
   let drawChart = () => {
     let puzzle = $puzzleDropdown.val();
     let since = $dateDropdown.val();
-    createChart(puzzle, since);
+    let url = `http://ec2-54-165-242-22.compute-1.amazonaws.com/solves/${puzzle}`;
+    // let url = `http://localhost:3000/solves/${puzzle}`;
+    let dayMap = { week: 7, month: 30, year: 365 };
+    if(dayMap[since]) {
+      let timestamp = Date.now() - 1000 * 60 * 60 * 24 * dayMap[since];
+      url = `${url}?since=${timestamp}`;
+    }
+    let $chart1 = $('#chart1');
+    let $chart2 = $('#chart2');
+    $.get(url, (data) => {
+      let solves = data.solves.map((solveData, index) => {
+        return new Solve(solveData.recorded_at, solveData.duration, index + 1);
+      });
+      $chart1.highcharts(createChart1(solves, puzzle === '6x6x6' || puzzle === '7x7x7'));
+      $chart2.highcharts(createChart2(solves, since));
+    }).fail(() => {
+      $chart1.text('There was an error loading the solves! Please try again.');
+    });
     if(localStorage) {
       localStorage.chosenPuzzle = puzzle;
       localStorage.chosenDate = since;
