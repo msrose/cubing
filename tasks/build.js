@@ -11,7 +11,7 @@ import runSequence from 'run-sequence';
 import Builder from 'systemjs-builder';
 
 gulp.task('bundle', (done) => {
-  let builder = new Builder('app/public');
+  let builder = new Builder('app/src');
   builder.bundle('scripts/main.js', 'app/dist/application.min.js', {
     minify: true,
     config: {
