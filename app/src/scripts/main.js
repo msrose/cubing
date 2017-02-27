@@ -9,7 +9,7 @@ $(document).ready(() => {
   let drawChart = () => {
     let puzzle = $puzzleDropdown.val();
     let since = $dateDropdown.val();
-    let url = `http://ec2-54-165-242-22.compute-1.amazonaws.com/solves/${puzzle}`;
+    let url = `http://107.20.22.194/solves/${puzzle}`;
     // let url = `http://localhost:3000/solves/${puzzle}`;
     let dayMap = { week: 7, month: 30, year: 365 };
     if(dayMap[since]) {
