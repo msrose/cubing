@@ -1,0 +1,10 @@
+h1 {
+  text-align: center; }
+
+.main {
+  text-align: center; }
+  .main select {
+    background-color: #fff;
+    border-radius: 3px;
+    min-width: 200px;
+    padding: 5px; }
